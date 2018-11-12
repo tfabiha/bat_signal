@@ -23,9 +23,9 @@ static void sighandler(int signo)
 
     //lseek(fd, 0, SEEK_END);
 
-    char str[25] = "Sigint found in %d\n";
-    sprintf(&str, "%d", getpid());
-    int yes = write(fd, &str, 15);
+    char str[25];
+    sprintf(str, "Found a SIGINT in %d\n", getpid());
+    int yes = write(fd, &str, 25);
     close(fd);
     //printf("%d", yes);
     //printf("%d: %s\n", errno, strerror(errno));
